@@ -51,7 +51,11 @@ repository = "https://github.com/arkhn/ai-lembic/tree/main/experiements/weak-sup
 version = "0.1.0"
 
 [tool.poetry.dependencies]
+matplotlib = "^3.7.0"
+numpy = "^1.24.2"
+pandas = "^1.5.3"
 python = "~3.9"
+seaborn = "^0.12.2"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.1.1"
