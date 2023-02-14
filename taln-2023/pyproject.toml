@@ -1,0 +1,65 @@
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+
+[tool]
+
+[tool.black]
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+include = '\.pyi?$'
+line-length = 100
+target-version = ['py36', 'py37', 'py38', 'py39']
+
+[tool.coverage.report]
+exclude_lines = [
+  "if __name__ == .__main__.:",
+  "pass",
+  "pragma: no cover",
+  "raise NotImplementedError",
+  "raise TypeError",
+  "raise ValueError"
+]
+
+[tool.isort]
+known_local_folder = [
+  'taln_2023',
+  'tests'
+]
+line_length = 100
+profile = 'black'
+
+[tool.poetry]
+authors = ["Simon Meoni <simon.meoni@arkhn.com>"]
+description = "stupid figures for taln 2023"
+license = "Apache-2.0"
+name = "taln-2023"
+readme = "README.md"
+repository = "https://github.com/arkhn/ai-lembic/tree/main/experiements/weak-supervision"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+python = "~3.9"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.1.1"
+pytest-cov = "^3.0.0"
+
+[tool.pytest.ini_options]
+addopts = "--cov-report term-missing:skip-covered"
+markers = [
+  "serial",
+  "slow: marks tests as slow (deselect with '-m \"not slow\"')"
+]
