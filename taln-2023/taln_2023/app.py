@@ -16,6 +16,7 @@ def f1_ratio_figure(
             data=df,
             hue=df["data/fold"],
             ax=ax,
+            s=103,
         )
     else:
         sns.scatterplot(
@@ -24,6 +25,7 @@ def f1_ratio_figure(
             color="salmon",
             data=df,
             ax=ax,
+            s=103,
         )
 
 
@@ -36,7 +38,7 @@ def unfolded_ratio_figure(
 
 def scatter_plot_figures():
     sns.set_style("whitegrid")
-    sns.set_context("paper")
+    sns.set_context("paper", font_scale=1.3)
     fig, ax = plt.subplots(1, 2, figsize=(10, 5))
     f1_ratio_figure(ax=ax[0])
     unfolded_ratio_figure(ax=ax[1])
